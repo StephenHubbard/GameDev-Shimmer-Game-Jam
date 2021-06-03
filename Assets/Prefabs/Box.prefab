@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 79f1cf27cebb06d409f30a0397c42bb2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -251,6 +251,7 @@ MonoBehaviour:
   myAnimator: {fileID: 4580352492556646245}
   hitsToDestroy: 3
   boxDestroyVFX: {fileID: 1110264763428426, guid: 0b8d2b7bc5a26194dae01cab27264c1a, type: 3}
+  puddingPrefab: {fileID: 5118631077375425076, guid: 1128fb5833d48bc4eb7a535a8e8c8953, type: 3}
 --- !u!58 &7088988097357168130
 CircleCollider2D:
   m_ObjectHideFlags: 0
