@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour {
 	float horizontalMove = 0f;
 	bool jump = false;
 
+  public bool isDead = false;
+
 	private Animator myAnimator;
 
 	private void Awake() {
@@ -18,6 +20,11 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	void Update () {
+
+		if (isDead) { 
+			horizontalMove = 0f;
+			return; 
+		}
 
 		horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
@@ -40,4 +47,5 @@ public class PlayerMovement : MonoBehaviour {
 		controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
 		jump = false;
 	}
+
 }

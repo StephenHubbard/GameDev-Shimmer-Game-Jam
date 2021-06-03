@@ -5,10 +5,9 @@ using UnityEngine;
 public class BoxSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject boxPrefab;
+    [SerializeField] private float timeBetweenSpawn = 5f;
 
     private bool levelIsActive = true;
-
-    [SerializeField] private int numOfBoxesToSpawn = 10;
 
     void Start()
     {
@@ -21,25 +20,17 @@ public class BoxSpawner : MonoBehaviour
     }
 
     private IEnumerator SpawnBox() {
-
         Vector2 randomSpawnLocation = new Vector2(transform.position.x + ReturnRandomNum(), transform.position.y);
-        
         Instantiate(boxPrefab, randomSpawnLocation, transform.rotation);
-
-        yield return new WaitForSeconds(1f);
-
-        numOfBoxesToSpawn--;
-        if (numOfBoxesToSpawn <= 0) {
-            levelIsActive = false;
+        yield return new WaitForSeconds(timeBetweenSpawn);
+        timeBetweenSpawn *= .95f;
+        if (timeBetweenSpawn <= .5f) {
+            timeBetweenSpawn = .5f;
         }
-        else {
-            StartCoroutine(SpawnBox());
-        }
-
-
+        StartCoroutine(SpawnBox());
     }
 
     private int ReturnRandomNum() {
-        return Random.Range(-8, 9);
+        return Random.Range(-24, 25);
     }
 }

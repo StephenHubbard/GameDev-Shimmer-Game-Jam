@@ -7,14 +7,22 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private Image[] heartsArray;
     [SerializeField] private int currentHealth = 3;
+    [SerializeField] private float knockbackDuration = 1f;
+    [SerializeField] private float knockbackPower = 10f;
+    [SerializeField] private GameObject menuContainer;
 
     private Animator myAnimator;
+    private Rigidbody2D rb;
 
     private void Awake() {
         myAnimator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    public void PlayerHit() {
+    public void PlayerHit(GameObject enemyObj) {
+
+        if (GetComponent<PlayerMovement>().isDead) { return; }
+
         myAnimator.SetTrigger("Hit");
         currentHealth--;
         UpdateHealth();
@@ -22,11 +30,22 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0) {
             PlayerDeath();
         }
+
+        StartCoroutine(Knockback(knockbackDuration, knockbackPower, enemyObj.transform));
     }
 
-    private void Update() {
-        
+    private IEnumerator Knockback(float knockbackDuration, float knockbackPower, Transform obj) {
+        float timer = 0;
+
+        while (knockbackDuration > timer) {
+            timer += Time.deltaTime;
+            Vector2 direction = (obj.transform.position - this.transform.position).normalized;
+            rb.AddForce(-direction * knockbackPower);
+        }
+
+        yield return 0;
     }
+
 
     private void UpdateHealth() {
         if (currentHealth == 1) {
@@ -52,6 +71,8 @@ public class PlayerHealth : MonoBehaviour
     }
 
     private void PlayerDeath() {
-
+        myAnimator.SetTrigger("Die");
+        GetComponent<PlayerMovement>().isDead = true;
+        menuContainer.SetActive(true);
     }
 }

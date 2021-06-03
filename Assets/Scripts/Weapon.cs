@@ -70,7 +70,7 @@ public class Weapon : MonoBehaviour {
 
     private void MaxAmmo() {
         if (currentAmmo > 50) {
-            currentAmmo = 0;
+            currentAmmo = 50;
         }
     }
 }
