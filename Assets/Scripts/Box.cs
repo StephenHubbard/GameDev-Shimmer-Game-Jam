@@ -8,6 +8,7 @@ public class Box : MonoBehaviour
     [SerializeField] private int hitsToDestroy = 3;
     [SerializeField] private GameObject boxDestroyVFX;
     [SerializeField] private GameObject puddingPrefab;
+    [SerializeField] private GameObject enemyPrefab;
 
     void Start()
     {
@@ -24,7 +25,14 @@ public class Box : MonoBehaviour
         myAnimator.SetTrigger("Hit");
         if (hitsToDestroy <= 0) {
             Instantiate(boxDestroyVFX, transform.position, transform.rotation);
-            Instantiate(puddingPrefab, transform.position, transform.rotation);
+
+            if (Random.value < .5f) {
+                Instantiate(puddingPrefab, transform.position, transform.rotation);
+            }
+            else {
+                Instantiate(enemyPrefab, transform.position, transform.rotation);
+            }
+
             Destroy(gameObject);
         }
     }

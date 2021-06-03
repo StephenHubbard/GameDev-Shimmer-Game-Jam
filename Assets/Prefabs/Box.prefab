@@ -252,6 +252,7 @@ MonoBehaviour:
   hitsToDestroy: 3
   boxDestroyVFX: {fileID: 1110264763428426, guid: 0b8d2b7bc5a26194dae01cab27264c1a, type: 3}
   puddingPrefab: {fileID: 5118631077375425076, guid: 1128fb5833d48bc4eb7a535a8e8c8953, type: 3}
+  enemyPrefab: {fileID: 1099777901505897036, guid: 55d69beb14e92d64e831b24bda6309a3, type: 3}
 --- !u!58 &7088988097357168130
 CircleCollider2D:
   m_ObjectHideFlags: 0

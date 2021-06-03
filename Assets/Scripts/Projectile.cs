@@ -16,7 +16,7 @@ public class Projectile : MonoBehaviour {
     private CharacterController2D characterController2D;
 
     private void Awake() {
-        characterController2D = FindObjectOfType<CharacterController2D>();
+        characterController2D = FindObjectOfType<PlayerMovement>().GetComponent<CharacterController2D>();
     }
 
     private void Start()
@@ -37,6 +37,10 @@ public class Projectile : MonoBehaviour {
         if (hitInfo.collider != null) {
             if (hitInfo.collider.CompareTag("Box")) {
                 hitInfo.collider.GetComponent<Box>().boxHit();
+                DestroyProjectile();
+            }
+            if (hitInfo.collider.CompareTag("Enemy")) {
+                hitInfo.collider.GetComponent<EnemyHealth>().EnemyHit();
                 DestroyProjectile();
             }
         }
