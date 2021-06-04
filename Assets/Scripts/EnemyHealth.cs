@@ -30,7 +30,7 @@ public class EnemyHealth : MonoBehaviour
             myAnimator.SetTrigger("Hit");
             if (currentHealth <= 0) {
                 Instantiate(enemyDestroyVFX, transform.position, transform.rotation);
-
+                FindObjectOfType<SlimesKilled>().slimesKilled++;
                 Destroy(gameObject);
             }
     }

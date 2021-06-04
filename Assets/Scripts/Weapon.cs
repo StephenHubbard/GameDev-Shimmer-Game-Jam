@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour {
 
     [SerializeField] public int currentAmmo = 50;
     [SerializeField] private Slider puddingSlider;
+    [SerializeField] private AudioClip fireSFX;
 
     public float offset;
 
@@ -50,8 +51,7 @@ public class Weapon : MonoBehaviour {
         {
         if (Input.GetMouseButton(0) && currentAmmo >= 1)
         {
-            // Instantiate(shotEffect, shotPoint.position, Quaternion.identity);
-            // camAnim.SetTrigger("shake");
+            AudioSource.PlayClipAtPoint(fireSFX, transform.position, .3f);
             Instantiate(projectile, shotPoint.position, transform.rotation);
             currentAmmo--;
             timeBtwShots = startTimeBtwShots;
