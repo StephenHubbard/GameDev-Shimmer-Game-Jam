@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float knockbackDuration = 1f;
     [SerializeField] private float knockbackPower = 10f;
     [SerializeField] private GameObject menuContainer;
+    [SerializeField] private AudioClip playerHitSFX;
 
     private Animator myAnimator;
     private Rigidbody2D rb;
@@ -23,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (GetComponent<PlayerMovement>().isDead) { return; }
 
+        AudioSource.PlayClipAtPoint(playerHitSFX, transform.position, .4f);
         myAnimator.SetTrigger("Hit");
         currentHealth--;
         UpdateHealth();

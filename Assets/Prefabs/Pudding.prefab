@@ -231,3 +231,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c95f07edf75314ca09a63620e179dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eatSFX: {fileID: 8300000, guid: 68ce667243e75874e9cf5434dda1cef1, type: 3}

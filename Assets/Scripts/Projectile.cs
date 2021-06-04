@@ -21,7 +21,6 @@ public class Projectile : MonoBehaviour {
 
     private void Start()
     {
-        Invoke("DestroyProjectile", lifeTime);
 
         if (characterController2D.m_FacingRight) {
             isFacingRightWhenShot = true;
