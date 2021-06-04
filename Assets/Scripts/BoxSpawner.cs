@@ -5,13 +5,17 @@ using UnityEngine;
 public class BoxSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject boxPrefab;
+    [SerializeField] private GameObject puddingPrefab;
+
     [SerializeField] private float timeBetweenSpawn = 5f;
+    [SerializeField] private float puddingSpawnTime = 8f;
 
     private bool levelIsActive = true;
 
     void Start()
     {
         StartCoroutine(SpawnBox());
+        StartCoroutine(SpawnPudding());
     }
 
     void Update()
@@ -32,5 +36,12 @@ public class BoxSpawner : MonoBehaviour
 
     private int ReturnRandomNum() {
         return Random.Range(-24, 25);
+    }
+
+    private IEnumerator SpawnPudding(){
+        yield return new WaitForSeconds(puddingSpawnTime);
+        Vector2 randomSpawnLocation = new Vector2(transform.position.x + ReturnRandomNum(), transform.position.y);
+        Instantiate(puddingPrefab, randomSpawnLocation, transform.rotation);
+        StartCoroutine(SpawnPudding());
     }
 }

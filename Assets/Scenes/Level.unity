@@ -1564,7 +1564,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.992695, y: 1.1243422, z: -10}
+  m_LocalPosition: {x: -2.9926949, y: 1.124342, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2093676412}
@@ -2469,7 +2469,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075649567}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.8591, y: -2.6461625, z: -5.3788466}
+  m_LocalPosition: {x: -2.8590994, y: -2.6461623, z: -5.3788466}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1685935798}
@@ -3144,7 +3144,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxPrefab: {fileID: 5514727718567110949, guid: 20e1ec3aef247254eafa218c664de98e, type: 3}
+  puddingPrefab: {fileID: 5118631077375425076, guid: 1128fb5833d48bc4eb7a535a8e8c8953, type: 3}
   timeBetweenSpawn: 3
+  puddingSpawnTime: 10
 --- !u!4 &1420167656
 Transform:
   m_ObjectHideFlags: 0
@@ -4204,19 +4206,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 1685935797}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 0, z: -10}
+  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
+  m_LookaheadTime: 0
+  m_LookaheadSmoothing: 0
+  m_LookaheadIgnoreY: 0
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
-  m_AngularDampingMode: 0
-  m_PitchDamping: 0
-  m_YawDamping: 0
-  m_RollDamping: 0
-  m_AngularDamping: 0
+  m_TargetMovementOnly: 1
+  m_ScreenX: 0.5
+  m_ScreenY: 0.5
+  m_CameraDistance: 10
+  m_DeadZoneWidth: 0.09
+  m_DeadZoneHeight: 0.15
+  m_DeadZoneDepth: 0
+  m_UnlimitedSoftZone: 0
+  m_SoftZoneWidth: 0.8
+  m_SoftZoneHeight: 0.8
+  m_BiasX: 0
+  m_BiasY: 0
+  m_CenterOnActivate: 1
+  m_GroupFramingMode: 2
+  m_AdjustmentMode: 0
+  m_GroupFramingSize: 0.8
+  m_MaxDollyIn: 5000
+  m_MaxDollyOut: 5000
+  m_MinimumDistance: 1
+  m_MaximumDistance: 5000
+  m_MinimumFOV: 3
+  m_MaximumFOV: 60
+  m_MinimumOrthoSize: 1
+  m_MaximumOrthoSize: 5000
 --- !u!114 &1685935800
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -4676,7 +4699,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765660761}
   m_LocalRotation: {x: -0, y: -0, z: 0.075919986, w: 0.9971139}
-  m_LocalPosition: {x: -10.4, y: 4.85, z: 0}
+  m_LocalPosition: {x: -7.99, y: 5.11, z: 0}
   m_LocalScale: {x: 4.5630293, y: 4.5630293, z: 4.5630293}
   m_Children: []
   m_Father: {fileID: 1496174534}
